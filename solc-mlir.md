@@ -1,4 +1,10 @@
+# Why MLIR?
+
+See https://github.com/matter-labs/era-solidity/blob/mlir/docs/internals/mlir/motivation.rst
+
 # Phases
+
+Below is a high-level overview of the solc-mlir compilation pipeline:
 
 ![Pipeline](solc-mlir-pipeline.svg)
 

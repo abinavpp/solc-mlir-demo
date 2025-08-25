@@ -35,8 +35,8 @@ module attributes {sol.evm_version = #Prague} {
   sol.contract @C_51 {
     sol.state_var @m_2 : ui256
     sol.func @_12(%arg0: ui256) attributes {kind = #Constructor, orig_fn_type = (ui256) -> (), state_mutability = #NonPayable} {
-      %1 = sol.addr_of @m_2 : !sol.ptr<ui256, Storage>
-      sol.store %arg0, %1 : ui256, !sol.ptr<ui256, Storage>
+      %1 = sol.addr_of @m_2 : !sol.ptr<ui256, Storage> // Get address of state variable
+      sol.store %arg0, %1 : ui256, !sol.ptr<ui256, Storage> // Update state variable
       sol.return
     }
     sol.func @f_50(%arg0: ui256) -> !sol.array<5 x ui256, Memory> attributes {orig_fn_type = (ui256) -> !sol.array<5 x ui256, Memory>, selector = -1277270901 : i32, state_mutability = #NonPayable} {
@@ -52,7 +52,7 @@ module attributes {sol.evm_version = #Prague} {
       } body {
         %7 = sol.gep ... // Array address calculation
         %10 = sol.cadd %8, %9 : ui256 // Checked add
-        sol.store %10, %7 : ui256, !sol.ptr<ui256, Memory>
+        sol.store %10, %7 : ui256, !sol.ptr<ui256, Memory> // Write to array
         sol.yield
       } step {
         ...

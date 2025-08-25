@@ -19,3 +19,15 @@ To compile with the upstream compiler (via-ir) in linux:
 ```bash
 linux/solc --standard-json via-ir.json
 ```
+
+To print the IR at different stages, run:
+
+```bash
+linux/solc --mlir-target=evm --mlir-action=<action> erc20.sol
+```
+
+where `<action>` can one of:
+- `print-init`: High level IR
+- `print-std-mlir`: Standard dialect
+- `print-llvm-ir`: LLVM IR
+- `print-asm`: Assembly

@@ -1,0 +1,26 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "i": {
+      "urls": [
+        "erc20.sol"
+      ]
+    }
+  },
+  "settings": {
+    "codegen": "mlir",
+    "optimizer": {
+      "mode": "3"
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "metadata",
+          "evm.bytecode.object",
+          "evm.deployedBytecode.object"
+        ]
+      }
+    }
+  }
+}

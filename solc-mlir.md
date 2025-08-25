@@ -1,16 +1,6 @@
 # Phases
 
-```mermaid
-flowchart LR
-    ast["AST"] --> sol["sol dialect"]
-    sol -->|high level optimizations| sol
-    sol --> yul["yul dialect"]
-    yul --> std["std dialects"]
-    std -->|MLIR upstream optimizations| std
-    std --> llvm["LLVM IR"]
-    llvm -->|LLVM stack| llvm
-    llvm --> bytecode["EVM bytecode"]
-```
+![Pipeline](solc-mlir-pipeline.svg)
 
 ## Example of Lowering
 

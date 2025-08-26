@@ -6,7 +6,7 @@ See https://github.com/matter-labs/era-solidity/blob/mlir/docs/internals/mlir/mo
 
 Below is a high-level overview of the solc-mlir compilation pipeline:
 
-![Pipeline](solc-mlir-pipeline.svg)
+![Pipeline](pipeline.svg)
 
 ## Example of Lowering
 
@@ -212,7 +212,7 @@ inline-asm.sol.
 
 Below is a high-level overview of the parallelized lowering:
 
-![Pipeline](parallel.svg)
+![Parallel lowering](parallel.svg)
 
 The full lowering from AST is parallelized on a per-contract basis. For example,
 on a Dell XPS 15 9520 with an Intel i7-12700H, an artificial setup with 14 ERC20

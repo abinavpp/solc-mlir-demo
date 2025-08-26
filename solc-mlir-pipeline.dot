@@ -4,19 +4,22 @@ digraph G {
   ranksep=1.0;
   node [shape=box, style=rounded, fontsize=14, margin="0.3,0.2"];
 
-  ast      [label="AST"];
-  sol      [label="sol dialect"];
-  yul      [label="yul dialect"];
-  std      [label="std dialects"];
-  llvm     [label="LLVM IR"];
+  ast [label="solidity AST"];
+  yast [label="Yul AST"];
+  sol [label="sol dialect"];
+  yul [label="yul dialect"];
+  std [label="std dialects"];
+  llvm [label="LLVM IR"];
   bytecode [label="EVM bytecode"];
 
-  ast  -> sol;
-  sol  -> sol    [label="High level optimizations"];
-  sol  -> yul;
-  yul  -> std;
-  std  -> std    [label="Upstream MLIR stack"];
-  std  -> llvm;
-  llvm -> llvm   [label="LLVM stack"];
+  ast -> sol;
+  sol -> sol [label="High level optimizations"];
+  sol -> yul;
+  yul -> std;
+  std -> std [label="Upstream MLIR stack"];
+  std -> llvm;
+  llvm -> llvm [label="LLVM stack"];
   llvm -> bytecode;
+  ast -> yast [label="Inline assembly"]
+  yast -> yul;
 }

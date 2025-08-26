@@ -23,7 +23,7 @@ linux/solc --standard-json via-ir.json
 To print the IR at different stages, run:
 
 ```bash
-linux/solc --mlir-target=evm --mlir-action=<action> erc20.sol
+linux/solc-mlir --mlir-target=evm --mlir-action=<action> erc20.sol
 ```
 
 where `<action>` can one of:

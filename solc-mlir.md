@@ -210,6 +210,10 @@ inline-asm.sol.
 
 ## Parallel Compilation
 
+Below is a high-level overview of the parallelized lowering:
+
+![Pipeline](parallel.svg)
+
 The full lowering from AST is parallelized on a per-contract basis. For example,
 on a Dell XPS 15 9520 with an Intel i7-12700H, an artificial setup with 14 ERC20
 contracts can be compiled in:

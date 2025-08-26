@@ -1,0 +1,36 @@
+digraph G {
+  rankdir=LR;
+  nodesep=1.0;
+  ranksep=1.0;
+  node [shape=box, style=rounded, fontsize=14, margin="0.3,0.2"];
+
+  src [label="Source"];
+  ast [label="solidity AST"];
+  c0 [label="Contract <C0> (Thread 0)"];
+  c1 [label="Contract <C1> (Thread 1)"];
+  cn [label="Contract <CN> (Thread N)"];
+  asm0 [label="Assembly"];
+  asm1 [label="Assembly"];
+  asmn [label="Assembly"];
+  bc0 [label="EVM bytecode"];
+  bc1 [label="EVM bytecode"];
+  bcn [label="EVM bytecode"];
+  lld [label="lld"];
+
+  src -> ast [label="Parsing + semantic analysis"]
+  ast -> c0
+  ast -> c1
+  ast -> cn
+
+  c0 -> asm0 [label="MLIR + LLVM stack"];
+  asm0 -> lld;
+  lld -> bc0;
+
+  c1 -> asm1 [label="MLIR + LLVM stack"];
+  asm1 -> lld;
+  lld -> bc1;
+
+  cn -> asmn [label="MLIR + LLVM stack"];
+  asmn -> lld;
+  lld -> bcn;
+}

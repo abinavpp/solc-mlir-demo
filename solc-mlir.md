@@ -72,6 +72,17 @@ higher-level aspects such as tracking the lifetime of memory allocations
 or optimizing checked arithmetic
 (see https://github.com/matter-labs/era-solidity/blob/mlir/docs/internals/mlir/checked-arith.rst).
 
+We preserve the original high-level types such as arrays and structs (even
+though they ultimately lower to raw i256 offsets). This makes it possible to
+attach type-based alias analysis (TBAA) annotations to memory operations,
+enabling LLVM to reason more precisely about aliasing and apply further
+optimizations around memory access. Our intention is to introduce these
+annotations once we have full clarity on Solidity’s aliasing rules in the
+presence of inline assembly, since inline assembly can create references with
+different underlying types. In particular, we need to determine what is strictly
+allowed in memory-safe assembly before making non-aliasing assumptions across
+types.
+
 Then we lower to the Yul dialect, which is more or less the same Yul
 representation you would get from upstream solc with the options --ir or
 --ir-optimized when using --via-ir.

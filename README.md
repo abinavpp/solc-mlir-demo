@@ -31,3 +31,33 @@ where `<action>` can one of:
 - `print-std-mlir`: Standard dialect
 - `print-llvm-ir`: LLVM IR
 - `print-asm`: Assembly
+
+## Build
+
+To build solc-mlir from source:
+
+```bash
+# Build LLVM
+git clone -b app-mlir https://github.com/matter-labs/era-compiler-llvm
+mkdir -p era-compiler-llvm/build
+cd era-compiler-llvm/build
+cmake \
+  ../llvm \
+  -G Ninja \
+  '-DLLVM_ENABLE_RTTI=ON' \
+  '-DCMAKE_BUILD_TYPE=Release' \
+  '-DLLVM_ENABLE_PROJECTS=mlir;lld' \
+  '-DLLVM_TARGETS_TO_BUILD=EraVM;EVM'
+
+# Build solc-mlir
+git clone -b mlir https://github.com/matter-labs/era-solidity
+mkdir -p era-solidity/build
+cd era-solidity/build
+cmake \
+  .. \
+  -G Ninja \
+  '-DCMAKE_BUILD_TYPE=Release' \
+  '-DMLIR_DIR=<llvm-build>/lib/cmake/mlir' \
+  '-DLLD_DIR=<llvm-build>lib/cmake/lld'
+# Where <llvm-build> is the build directory path of llvm
+```

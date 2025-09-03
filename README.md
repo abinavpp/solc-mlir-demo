@@ -10,7 +10,8 @@ and should not be considered a replacement for solc at this stage.
 The biggest improvement currently is compile-time (**upto 16x** faster with
 multi-threaded lowering), especially in the presence of multiple contracts where
 we utilize a multi-threaded lowering pipeline. See the current improvements
-[here](solc-mlir.md#parallel-compilation).
+[here](solc-mlir.md#parallel-compilation). Check the erc20-copies directory to
+try this.
 
 We're also seeing gas improvements [here](solc-mlir.md#gas).
 

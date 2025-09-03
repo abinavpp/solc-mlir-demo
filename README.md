@@ -9,6 +9,8 @@ multi-threaded lowering), especially in the presence of multiple contracts where
 we utilize a multi-threaded lowering pipeline. See the current improvements
 [here](solc-mlir.md#parallel-compilation).
 
+We're also seeing gas improvements [here](solc-mlir.md#gas).
+
 You can download the solc-mlir binaries from the `release-<platform>` binaries
 under "Artifacts"
 [here](https://github.com/matter-labs/era-solidity/actions/runs/17426954675).

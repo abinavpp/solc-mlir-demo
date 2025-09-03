@@ -7,11 +7,11 @@ Read more about it [here](solc-mlir.md). It's currently hosted at [era-solidity
 **Disclaimer**: solc-mlir is still in active development, not feature-complete,
 and should not be considered a replacement for solc at this stage.
 
-The biggest improvement currently is compile-time (**upto 16x** faster with
-multi-threaded lowering), especially in the presence of multiple contracts where
-we utilize a multi-threaded lowering pipeline. See the current improvements
-[here](solc-mlir.md#parallel-compilation). Check the erc20-copies directory to
-try this.
+The biggest improvement currently is compile-time (**up to 16x** faster with
+multi-threaded lowering on an i7-12700H), especially in the presence of multiple
+contracts where we utilize a multi-threaded lowering pipeline. See the current
+improvements [here](solc-mlir.md#parallel-compilation). Check the erc20-copies
+directory to try this.
 
 We're also seeing gas improvements [here](solc-mlir.md#gas).
 

@@ -236,7 +236,7 @@ Currently, the multi-threaded lowering is scaling reasonably well:
 
 ```
 +--------------------------+-------------------------------------+
-|    clones of ERC20       |   compile-time (in seconds)         |
+|    copies of ERC20       |   compile-time (in seconds)         |
 +--------------------------+-------------+-----------+-----------+
 |                          | solc-mlir   |  legacy   |  via-ir   |
 +--------------------------+-------------+-----------+-----------+

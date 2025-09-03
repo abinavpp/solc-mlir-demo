@@ -4,6 +4,9 @@
 Read more about it [here](solc-mlir.md). It's currently hosted at [era-solidity
 (mlir branch)](https://github.com/matter-labs/era-solidity/tree/mlir).
 
+**Disclaimer**: solc-mlir is still in active development, not feature-complete,
+and should not be considered a replacement for solc at this stage.
+
 The biggest improvement currently is compile-time (**upto 16x** faster with
 multi-threaded lowering), especially in the presence of multiple contracts where
 we utilize a multi-threaded lowering pipeline. See the current improvements

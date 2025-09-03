@@ -3,6 +3,10 @@
 **solc-mlir** is an MLIR-based compiler for Solidity, derived from solc 0.8.30.
 Read more about it [here](solc-mlir.md).
 
+The biggest improvement currently is compile-time, especially in the presence of
+multiple contracts where we utilize a multi-threaded lowering pipeline. See the
+current improvements [here](solc-mlir.md#parallel-compilation).
+
 You can download the solc-mlir binaries from the `release-<platform>` binaries
 under "Artifacts" in
 https://github.com/matter-labs/era-solidity/actions/runs/17426954675. Upstream

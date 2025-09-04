@@ -1,21 +1,21 @@
-# solc-mlir
+# solx-mlir
 
-**solc-mlir** is an MLIR-based compiler for Solidity, derived from solc 0.8.30.
-Read more about it [here](solc-mlir.md). It's currently hosted at [era-solidity
+**solx-mlir** is an MLIR-based compiler for Solidity, derived from solc 0.8.30.
+Read more about it [here](solx-mlir.md). It's currently hosted at [era-solidity
 (mlir branch)](https://github.com/matter-labs/era-solidity/tree/mlir).
 
-**Disclaimer**: solc-mlir is still in active development, not feature-complete,
+**Disclaimer**: solx-mlir is still in active development, not feature-complete,
 and should not be considered a replacement for solc at this stage.
 
 The biggest improvement currently is compile-time (**up to 16x** faster with
 multi-threaded lowering on an i7-12700H), especially in the presence of multiple
 contracts where we utilize a multi-threaded lowering pipeline. See the current
-improvements [here](solc-mlir.md#parallel-compilation). Check the erc20-copies
+improvements [here](solx-mlir.md#parallel-compilation). Check the erc20-copies
 directory to try this.
 
-We're also seeing gas improvements [here](solc-mlir.md#gas).
+We're also seeing gas improvements [here](solx-mlir.md#gas).
 
-You can download the solc-mlir binaries from the `release-<platform>` binaries
+You can download the solx-mlir binaries from the `release-<platform>` binaries
 under "Artifacts"
 [here](https://github.com/matter-labs/era-solidity/actions/runs/17426954675).
 Upstream solc binaries can be found
@@ -29,7 +29,7 @@ Upstream solc binaries can be found
 To compile with the MLIR-based compiler:
 
 ```bash
-<solc-mlir> --standard-json mlir.json
+<solx-mlir> --standard-json mlir.json
 ```
 
 To compile with the upstream compiler (via-ir):
@@ -41,7 +41,7 @@ To compile with the upstream compiler (via-ir):
 To print the IR at different stages, run:
 
 ```bash
-<solc-mlir> --mlir-target=evm --mlir-action=<action> erc20.sol
+<solx-mlir> --mlir-target=evm --mlir-action=<action> erc20.sol
 ```
 
 where `<action>` can one of:
@@ -52,7 +52,7 @@ where `<action>` can one of:
 
 ## Build
 
-To build solc-mlir from source:
+To build solx-mlir from source:
 
 ```bash
 # Build LLVM
@@ -69,7 +69,7 @@ cmake \
 ninja
 cd ../..
 
-# Build solc-mlir
+# Build solx-mlir
 git clone -b mlir https://github.com/matter-labs/era-solidity
 mkdir -p era-solidity/build
 cd era-solidity/build
@@ -82,6 +82,6 @@ cmake \
   # Where <llvm-build> is the *absolute* path to the llvm build.
 ninja
 
-# Run solc-mlir
+# Run solx-mlir
 solc/solc --version
 ```
